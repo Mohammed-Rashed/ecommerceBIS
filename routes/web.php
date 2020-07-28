@@ -13,10 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::view('/', 'site.pages.homepage');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::post('admin/login', 'Admin\LoginController@authenticate')->name('admin.login.post');
+Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+
+Route::group(['middleware' => 'Admin','prefix'  =>  'admin'], function () {
+    Route::view('/', 'admin.dashboard.index')->name('dashboard.index');;
+    Route::resource('categories', 'Admin\CategoryController');
+    Route::resource('products', 'Admin\ProductsController');
+});
