@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('price')->nullable();
             $table->boolean('status')->default(1);
             $table->string('image')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
 
             $table->timestamps();
         });
