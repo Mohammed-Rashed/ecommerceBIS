@@ -41,10 +41,9 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'slug' => 'required|unique:categories',
+            'name' => 'required|unique:categories' ,
         ]);
 
         $input = $request->except('image');
@@ -94,9 +93,8 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
             'description' => 'required',
-            'slug' => 'required|unique:categories,slug,'.$id,',id' ,
+            'name' => 'required|unique:categories,name,'.$id,',id' ,
         ]);
         $input = $request->except('image');
         $category = Category::find($id);

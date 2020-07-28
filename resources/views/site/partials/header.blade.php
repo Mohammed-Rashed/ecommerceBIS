@@ -2,36 +2,18 @@
     <section class="header-main">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-3">
-                    <div class="brand-wrap">
+                <div class="col-6">
+                    <div class="brand-wrap m-0">
                         <a href="{{ url('/') }}">
                             <img class="logo" src="{{ asset('frontend/images/logo-dark.png') }}" alt="logo">
+                            <span class="font-weight-bold text-dark">{{ config('app.name') }}</span>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-6">
-                    <form action="#" class="search-wrap">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-sm-6">
+
+                <div class="col-6">
                     <div class="widgets-wrap d-flex justify-content-end">
-                        <div class="widget-header">
-                            <a href="#" class="icontext">
-                                <div class="icon-wrap icon-xs bg2 round text-secondary"><i
-                                        class="fa fa-shopping-cart"></i></div>
-                                <div class="text-wrap">
-                                    <small>3 items</small>
-                                </div>
-                            </a>
-                        </div>
+
                         @guest
                             <div class="widget-header">
                                 <a href="{{ route('login') }}" class="ml-3 icontext">

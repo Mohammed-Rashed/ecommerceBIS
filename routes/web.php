@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::view('/', 'site.pages.homepage');
 
 Auth::routes();
 
@@ -30,3 +29,7 @@ Route::group(['middleware' => 'Admin','prefix'  =>  'admin'], function () {
     Route::resource('categories', 'Admin\CategoryController');
     Route::resource('products', 'Admin\ProductsController');
 });
+Route::get('/', 'Site\SiteController@index')->name('site.home');
+
+Route::get('/category/{slug}', 'Site\SiteController@show')->name('category.show');
+Route::get('/product/{slug}', 'Site\SiteController@showProduct')->name('product.show');

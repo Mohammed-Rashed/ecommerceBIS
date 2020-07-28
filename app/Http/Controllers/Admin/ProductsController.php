@@ -45,10 +45,9 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'slug' => 'required|unique:products',
+            'name' => 'required|unique:products',
             'price' => 'required',
         ]);
 
@@ -100,9 +99,8 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
             'description' => 'required',
-            'slug' => 'required|unique:products,slug,'.$id,',id' ,
+            'name' => 'required|unique:products,name,'.$id,',id' ,
             'price' => 'required',
         ]);
         $input = $request->except('image');

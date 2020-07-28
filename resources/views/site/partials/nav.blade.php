@@ -7,35 +7,14 @@
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link pl-0" href="#"> <strong>All category</strong></a>
+                    <a class="nav-link pl-0 text-white" href="{{route('site.home')}}"> <strong>All category</strong></a>
                 </li>
+                @foreach(\App\Models\Category::all() as $category)
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Fashion</a>
+                    <a class="nav-link text-white" href="{{route('category.show',$category->slug)}}">{{$category->name}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Supermarket</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Electronics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Baby &amp Toys</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Fitness sport</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown07">
-                        <a class="dropdown-item" href="#">Foods and Drink</a>
-                        <a class="dropdown-item" href="#">Home interior</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Category 1</a>
-                        <a class="dropdown-item" href="#">Category 2</a>
-                        <a class="dropdown-item" href="#">Category 3</a>
-                    </div>
-                </li>
+                @endforeach
+
             </ul>
         </div>
     </div>

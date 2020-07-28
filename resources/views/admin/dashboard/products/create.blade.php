@@ -19,11 +19,11 @@
                             <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name') }}"/>
                             @error('name') {{ $message }} @enderror
                         </div>
-                        <div class="form-group">
+                     {{--   <div class="form-group">
                             <label class="control-label" for="slug">Slug <span class="m-l-5 text-danger"> *</span></label>
                             <input class="form-control @error('slug') is-invalid @enderror" type="text" name="slug" id="slug" value="{{ old('slug') }}"/>
                             @error('slug') {{ $message }} @enderror
-                        </div>
+                        </div>--}}
                         <div class="form-group">
                             <label class="control-label" for="description">Description<span class="m-l-5 text-danger"> *</span></label>
                             <textarea class="form-control @error('description') is-invalid @enderror" rows="4" name="description" id="description">{{ old('description') }}</textarea>
